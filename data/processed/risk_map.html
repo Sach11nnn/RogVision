@@ -1,0 +1,2688 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bcf9f537d67b3aa8549d7c6bb48b4efe {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style='
+    position: fixed; bottom: 30px; left: 30px;
+    z-index: 1000; background: white;
+    padding: 12px; border-radius: 8px;
+    border: 2px solid #ccc; font-family: Arial;
+    font-size: 13px;'>
+  <b>Risk Level</b><br>
+  <span style='color:red'>&#9679;</span> High (66-100)<br>
+  <span style='color:orange'>&#9679;</span> Medium (33-66)<br>
+  <span style='color:green'>&#9679;</span> Low (0-33)<br>
+  <i style='font-size:11px'>Circle size = risk score</i>
+</div>
+    
+            <div class="folium-map" id="map_bcf9f537d67b3aa8549d7c6bb48b4efe" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bcf9f537d67b3aa8549d7c6bb48b4efe = L.map(
+                "map_bcf9f537d67b3aa8549d7c6bb48b4efe",
+                {
+                    center: [20.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a0419c6e9a8e7cd1b713449f4b337386 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a0419c6e9a8e7cd1b713449f4b337386.addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+            var circle_marker_16ae753317528e7d97ba8a0d414f4d69 = L.circleMarker(
+                [33.93, 67.71],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_1d827431ffa004da9ce37727f9161178 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_195905d9d976974f17f85c60750dec9f = $(`<div id="html_195905d9d976974f17f85c60750dec9f" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Afghanistan</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 20.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 209,451<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 3.77%<br>       <b>Rt Value:</b> 0.65<br>       <b>Cases/Million:</b> 5,093     </div>     </div>`)[0];
+                popup_1d827431ffa004da9ce37727f9161178.setContent(html_195905d9d976974f17f85c60750dec9f);
+            
+        
+
+        circle_marker_16ae753317528e7d97ba8a0d414f4d69.bindPopup(popup_1d827431ffa004da9ce37727f9161178)
+        ;
+
+        
+    
+    
+            circle_marker_16ae753317528e7d97ba8a0d414f4d69.bindTooltip(
+                `<div>
+                     Afghanistan: 20.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_15254076b299b6a784cec2fab1c52160 = L.circleMarker(
+                [41.15, 20.17],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_9319febc561f99f69b4c97f936be8be5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b9bab3125202d10af4e12037a02154af = $(`<div id="html_b9bab3125202d10af4e12037a02154af" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Albania</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 19.5/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 334,457<br>       <b>New Cases:</b> 14<br>       <b>Death Rate:</b> 1.08%<br>       <b>Rt Value:</b> 0.78<br>       <b>Cases/Million:</b> 117,671     </div>     </div>`)[0];
+                popup_9319febc561f99f69b4c97f936be8be5.setContent(html_b9bab3125202d10af4e12037a02154af);
+            
+        
+
+        circle_marker_15254076b299b6a784cec2fab1c52160.bindPopup(popup_9319febc561f99f69b4c97f936be8be5)
+        ;
+
+        
+    
+    
+            circle_marker_15254076b299b6a784cec2fab1c52160.bindTooltip(
+                `<div>
+                     Albania: 19.5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_401b5edae641217f422f5965f8d06732 = L.circleMarker(
+                [28.03, 1.66],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_bd26c6708ce92c2563a96c6e7be359f8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a997da914713cd8f50bcc83070f141ac = $(`<div id="html_a997da914713cd8f50bcc83070f141ac" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Algeria</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 17.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 271,496<br>       <b>New Cases:</b> 2<br>       <b>Death Rate:</b> 2.53%<br>       <b>Rt Value:</b> 1.06<br>       <b>Cases/Million:</b> 6,046     </div>     </div>`)[0];
+                popup_bd26c6708ce92c2563a96c6e7be359f8.setContent(html_a997da914713cd8f50bcc83070f141ac);
+            
+        
+
+        circle_marker_401b5edae641217f422f5965f8d06732.bindPopup(popup_bd26c6708ce92c2563a96c6e7be359f8)
+        ;
+
+        
+    
+    
+            circle_marker_401b5edae641217f422f5965f8d06732.bindTooltip(
+                `<div>
+                     Algeria: 17.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_34acc2fe1fb116777cb542c822b33b61 = L.circleMarker(
+                [-38.42, -63.62],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_1e4b9a80ae11478065a2d18c2e8c7a04 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c3af6b6ca1a0387b37d8a86ec6bda9b9 = $(`<div id="html_c3af6b6ca1a0387b37d8a86ec6bda9b9" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Argentina</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 19.0/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 10,044,957<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 1.30%<br>       <b>Rt Value:</b> 1.02<br>       <b>Cases/Million:</b> 220,718     </div>     </div>`)[0];
+                popup_1e4b9a80ae11478065a2d18c2e8c7a04.setContent(html_c3af6b6ca1a0387b37d8a86ec6bda9b9);
+            
+        
+
+        circle_marker_34acc2fe1fb116777cb542c822b33b61.bindPopup(popup_1e4b9a80ae11478065a2d18c2e8c7a04)
+        ;
+
+        
+    
+    
+            circle_marker_34acc2fe1fb116777cb542c822b33b61.bindTooltip(
+                `<div>
+                     Argentina: 19.0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_635bf286d161ec60032be9148004dbcd = L.circleMarker(
+                [-25.27, 133.78],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.303701037766453, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_d2aa77dddbebd080d44b9c064609051b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c6a76fd4c5bf2a11fbe9437b602892fd = $(`<div id="html_c6a76fd4c5bf2a11fbe9437b602892fd" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Australia</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 26.5/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 11,399,460<br>       <b>New Cases:</b> 13,926<br>       <b>Death Rate:</b> 0.17%<br>       <b>Rt Value:</b> 0.75<br>       <b>Cases/Million:</b> 435,469     </div>     </div>`)[0];
+                popup_d2aa77dddbebd080d44b9c064609051b.setContent(html_c6a76fd4c5bf2a11fbe9437b602892fd);
+            
+        
+
+        circle_marker_635bf286d161ec60032be9148004dbcd.bindPopup(popup_d2aa77dddbebd080d44b9c064609051b)
+        ;
+
+        
+    
+    
+            circle_marker_635bf286d161ec60032be9148004dbcd.bindTooltip(
+                `<div>
+                     Australia: 26.5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_75116edd999fdf6eef9b972a3ba5ef6e = L.circleMarker(
+                [47.52, 14.55],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.5655758671475315, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_4501985fe88440e8f7aa8e2187e8a1e0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e525a9ecae96601a8a0fb9821c231b05 = $(`<div id="html_e525a9ecae96601a8a0fb9821c231b05" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Austria</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 27.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 5,961,143<br>       <b>New Cases:</b> 5,283<br>       <b>Death Rate:</b> 0.37%<br>       <b>Rt Value:</b> 0.84<br>       <b>Cases/Million:</b> 666,823     </div>     </div>`)[0];
+                popup_4501985fe88440e8f7aa8e2187e8a1e0.setContent(html_e525a9ecae96601a8a0fb9821c231b05);
+            
+        
+
+        circle_marker_75116edd999fdf6eef9b972a3ba5ef6e.bindPopup(popup_4501985fe88440e8f7aa8e2187e8a1e0)
+        ;
+
+        
+    
+    
+            circle_marker_75116edd999fdf6eef9b972a3ba5ef6e.bindTooltip(
+                `<div>
+                     Austria: 27.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9c55b0cb3236130e48bd1385764499a9 = L.circleMarker(
+                [23.68, 90.35],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.24442658123054, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_26c78b36ee98a6a9061718285ee933be = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a9b5f2b5d218efecde3f43474006f706 = $(`<div id="html_a9b5f2b5d218efecde3f43474006f706" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Bangladesh</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 31.2/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 2,037,871<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 1.44%<br>       <b>Rt Value:</b> 0.75<br>       <b>Cases/Million:</b> 11,904     </div>     </div>`)[0];
+                popup_26c78b36ee98a6a9061718285ee933be.setContent(html_a9b5f2b5d218efecde3f43474006f706);
+            
+        
+
+        circle_marker_9c55b0cb3236130e48bd1385764499a9.bindPopup(popup_26c78b36ee98a6a9061718285ee933be)
+        ;
+
+        
+    
+    
+            circle_marker_9c55b0cb3236130e48bd1385764499a9.bindTooltip(
+                `<div>
+                     Bangladesh: 31.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_401032369aacd7632f92ec639a575581 = L.circleMarker(
+                [53.71, 27.95],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_f7b0748bc4ee4ad8ec76d030885697aa = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_541269e761b4e41486664814d1eadf2e = $(`<div id="html_541269e761b4e41486664814d1eadf2e" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Belarus</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 7.0/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 994,037<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.72%<br>       <b>Rt Value:</b> 0.00<br>       <b>Cases/Million:</b> 104,252     </div>     </div>`)[0];
+                popup_f7b0748bc4ee4ad8ec76d030885697aa.setContent(html_541269e761b4e41486664814d1eadf2e);
+            
+        
+
+        circle_marker_401032369aacd7632f92ec639a575581.bindPopup(popup_f7b0748bc4ee4ad8ec76d030885697aa)
+        ;
+
+        
+    
+    
+            circle_marker_401032369aacd7632f92ec639a575581.bindTooltip(
+                `<div>
+                     Belarus: 7.0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_583fd5483ef7acfdf41d974552da1fb8 = L.circleMarker(
+                [50.5, 4.47],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_8b120b27062f753758d5993804e027a8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1ac9d540b0543041f85cce209aaf0996 = $(`<div id="html_1ac9d540b0543041f85cce209aaf0996" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Belgium</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 23.4/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 4,739,365<br>       <b>New Cases:</b> 11,570<br>       <b>Death Rate:</b> 0.71%<br>       <b>Rt Value:</b> 1.14<br>       <b>Cases/Million:</b> 406,606     </div>     </div>`)[0];
+                popup_8b120b27062f753758d5993804e027a8.setContent(html_1ac9d540b0543041f85cce209aaf0996);
+            
+        
+
+        circle_marker_583fd5483ef7acfdf41d974552da1fb8.bindPopup(popup_8b120b27062f753758d5993804e027a8)
+        ;
+
+        
+    
+    
+            circle_marker_583fd5483ef7acfdf41d974552da1fb8.bindTooltip(
+                `<div>
+                     Belgium: 23.4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e5b61d996f780a5ec1b4df9a082ae6b2 = L.circleMarker(
+                [-16.29, -63.59],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_5eb0b9fffa1c36e7299e38d25ef0432c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_69207cddb309419e9ae5d2131579d0b4 = $(`<div id="html_69207cddb309419e9ae5d2131579d0b4" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Bolivia</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.3/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,194,277<br>       <b>New Cases:</b> 90<br>       <b>Death Rate:</b> 1.87%<br>       <b>Rt Value:</b> 0.81<br>       <b>Cases/Million:</b> 97,698     </div>     </div>`)[0];
+                popup_5eb0b9fffa1c36e7299e38d25ef0432c.setContent(html_69207cddb309419e9ae5d2131579d0b4);
+            
+        
+
+        circle_marker_e5b61d996f780a5ec1b4df9a082ae6b2.bindPopup(popup_5eb0b9fffa1c36e7299e38d25ef0432c)
+        ;
+
+        
+    
+    
+            circle_marker_e5b61d996f780a5ec1b4df9a082ae6b2.bindTooltip(
+                `<div>
+                     Bolivia: 21.3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_19f57b05f72759520b98c421c3cedd53 = L.circleMarker(
+                [-14.24, -51.93],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_65f54fcc4d2712754588cb9490d38dfe = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0f3944a8328368be1f7e2f6aabd9fd87 = $(`<div id="html_0f3944a8328368be1f7e2f6aabd9fd87" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Brazil</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.7/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 37,076,053<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 1.89%<br>       <b>Rt Value:</b> 0.33<br>       <b>Cases/Million:</b> 172,196     </div>     </div>`)[0];
+                popup_65f54fcc4d2712754588cb9490d38dfe.setContent(html_0f3944a8328368be1f7e2f6aabd9fd87);
+            
+        
+
+        circle_marker_19f57b05f72759520b98c421c3cedd53.bindPopup(popup_65f54fcc4d2712754588cb9490d38dfe)
+        ;
+
+        
+    
+    
+            circle_marker_19f57b05f72759520b98c421c3cedd53.bindTooltip(
+                `<div>
+                     Brazil: 21.7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f86a58a13493f5e9b9eabb5730624054 = L.circleMarker(
+                [42.73, 25.49],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_1e6fbfecd618db448c80c2d14b8349ec = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_25c9b942f8794beaef8f368802ed70d6 = $(`<div id="html_25c9b942f8794beaef8f368802ed70d6" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Bulgaria</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 14.7/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,297,523<br>       <b>New Cases:</b> 72<br>       <b>Death Rate:</b> 2.95%<br>       <b>Rt Value:</b> 1.61<br>       <b>Cases/Million:</b> 191,320     </div>     </div>`)[0];
+                popup_1e6fbfecd618db448c80c2d14b8349ec.setContent(html_25c9b942f8794beaef8f368802ed70d6);
+            
+        
+
+        circle_marker_f86a58a13493f5e9b9eabb5730624054.bindPopup(popup_1e6fbfecd618db448c80c2d14b8349ec)
+        ;
+
+        
+    
+    
+            circle_marker_f86a58a13493f5e9b9eabb5730624054.bindTooltip(
+                `<div>
+                     Bulgaria: 14.7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9243a70521b44d5c110065c07fb05861 = L.circleMarker(
+                [56.13, -106.35],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_c783322329011ed3896ace141b94f756 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_58df8c41094952965f9ee4ec5db61844 = $(`<div id="html_58df8c41094952965f9ee4ec5db61844" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Canada</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 19.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 4,617,095<br>       <b>New Cases:</b> 4,041<br>       <b>Death Rate:</b> 1.12%<br>       <b>Rt Value:</b> 0.95<br>       <b>Cases/Million:</b> 120,067     </div>     </div>`)[0];
+                popup_c783322329011ed3896ace141b94f756.setContent(html_58df8c41094952965f9ee4ec5db61844);
+            
+        
+
+        circle_marker_9243a70521b44d5c110065c07fb05861.bindPopup(popup_c783322329011ed3896ace141b94f756)
+        ;
+
+        
+    
+    
+            circle_marker_9243a70521b44d5c110065c07fb05861.bindTooltip(
+                `<div>
+                     Canada: 19.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0bec0f3bea5ac70ecb94b7ad048bcc4a = L.circleMarker(
+                [-35.68, -71.54],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_2157c494b126e21669ebc58df77c982e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_83d92eb46f898a6ccbbcefbf007b7d2a = $(`<div id="html_83d92eb46f898a6ccbbcefbf007b7d2a" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Chile</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 24.4/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 5,192,286<br>       <b>New Cases:</b> 3,906<br>       <b>Death Rate:</b> 1.24%<br>       <b>Rt Value:</b> 1.30<br>       <b>Cases/Million:</b> 264,862     </div>     </div>`)[0];
+                popup_2157c494b126e21669ebc58df77c982e.setContent(html_83d92eb46f898a6ccbbcefbf007b7d2a);
+            
+        
+
+        circle_marker_0bec0f3bea5ac70ecb94b7ad048bcc4a.bindPopup(popup_2157c494b126e21669ebc58df77c982e)
+        ;
+
+        
+    
+    
+            circle_marker_0bec0f3bea5ac70ecb94b7ad048bcc4a.bindTooltip(
+                `<div>
+                     Chile: 24.4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_94f68ed1ee1de1dca5950c72e0b7d518 = L.circleMarker(
+                [35.86, 104.2],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_8f4961ef306ac90b7f5e6468a419c7e3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_af138345c5413a69a168bb049a6dafc3 = $(`<div id="html_af138345c5413a69a168bb049a6dafc3" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>China</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 14.2/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 4,903,524<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 2.06%<br>       <b>Rt Value:</b> 0.00<br>       <b>Cases/Million:</b> 3,439     </div>     </div>`)[0];
+                popup_8f4961ef306ac90b7f5e6468a419c7e3.setContent(html_af138345c5413a69a168bb049a6dafc3);
+            
+        
+
+        circle_marker_94f68ed1ee1de1dca5950c72e0b7d518.bindPopup(popup_8f4961ef306ac90b7f5e6468a419c7e3)
+        ;
+
+        
+    
+    
+            circle_marker_94f68ed1ee1de1dca5950c72e0b7d518.bindTooltip(
+                `<div>
+                     China: 14.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_721d117fe4dbcc9ada6e32bc253fd03f = L.circleMarker(
+                [4.57, -74.3],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_0ef894f7fe86a5b7fe03136ec59f89b9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_820c4d3a9dd3b0a97adc6af1eb96c978 = $(`<div id="html_820c4d3a9dd3b0a97adc6af1eb96c978" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Colombia</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.1/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 6,359,093<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 2.24%<br>       <b>Rt Value:</b> 0.49<br>       <b>Cases/Million:</b> 122,587     </div>     </div>`)[0];
+                popup_0ef894f7fe86a5b7fe03136ec59f89b9.setContent(html_820c4d3a9dd3b0a97adc6af1eb96c978);
+            
+        
+
+        circle_marker_721d117fe4dbcc9ada6e32bc253fd03f.bindPopup(popup_0ef894f7fe86a5b7fe03136ec59f89b9)
+        ;
+
+        
+    
+    
+            circle_marker_721d117fe4dbcc9ada6e32bc253fd03f.bindTooltip(
+                `<div>
+                     Colombia: 21.1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_434a4e9dd09639f058b5465fd5fa3fdd = L.circleMarker(
+                [45.1, 15.2],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_5f751cd174f673c7fa29c1be101a1eb7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_45d62c45054e889be579487d060fbe84 = $(`<div id="html_45d62c45054e889be579487d060fbe84" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Croatia</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 20.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,269,326<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 1.42%<br>       <b>Rt Value:</b> 1.02<br>       <b>Cases/Million:</b> 314,941     </div>     </div>`)[0];
+                popup_5f751cd174f673c7fa29c1be101a1eb7.setContent(html_45d62c45054e889be579487d060fbe84);
+            
+        
+
+        circle_marker_434a4e9dd09639f058b5465fd5fa3fdd.bindPopup(popup_5f751cd174f673c7fa29c1be101a1eb7)
+        ;
+
+        
+    
+    
+            circle_marker_434a4e9dd09639f058b5465fd5fa3fdd.bindTooltip(
+                `<div>
+                     Croatia: 20.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1d77c66adc4cf79f8aa91eeea79147d4 = L.circleMarker(
+                [21.52, -77.78],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_9627ec9a4a32161537d096015f71b476 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_98cb7d5bb3af742bbd1330230914ccf6 = $(`<div id="html_98cb7d5bb3af742bbd1330230914ccf6" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Cuba</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 0.0/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,112,643<br>       <b>New Cases:</b> 6<br>       <b>Death Rate:</b> 0.77%<br>       <b>Rt Value:</b> 0.81<br>       <b>Cases/Million:</b> 99,235     </div>     </div>`)[0];
+                popup_9627ec9a4a32161537d096015f71b476.setContent(html_98cb7d5bb3af742bbd1330230914ccf6);
+            
+        
+
+        circle_marker_1d77c66adc4cf79f8aa91eeea79147d4.bindPopup(popup_9627ec9a4a32161537d096015f71b476)
+        ;
+
+        
+    
+    
+            circle_marker_1d77c66adc4cf79f8aa91eeea79147d4.bindTooltip(
+                `<div>
+                     Cuba: 0.0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_55f81caa17fc005b39efc5588943c935 = L.circleMarker(
+                [56.26, 9.5],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.549921118035249, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_97d0f661abd3b29b4a55bfd34e211478 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dd5567808c7633a8423088c1f86b5b39 = $(`<div id="html_dd5567808c7633a8423088c1f86b5b39" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Denmark</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 32.7/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 3,451,036<br>       <b>New Cases:</b> 139<br>       <b>Death Rate:</b> 0.24%<br>       <b>Rt Value:</b> 1.09<br>       <b>Cases/Million:</b> 586,685     </div>     </div>`)[0];
+                popup_97d0f661abd3b29b4a55bfd34e211478.setContent(html_dd5567808c7633a8423088c1f86b5b39);
+            
+        
+
+        circle_marker_55f81caa17fc005b39efc5588943c935.bindPopup(popup_97d0f661abd3b29b4a55bfd34e211478)
+        ;
+
+        
+    
+    
+            circle_marker_55f81caa17fc005b39efc5588943c935.bindTooltip(
+                `<div>
+                     Denmark: 32.7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e658524840dcf85db87e777f479c602 = L.circleMarker(
+                [-1.83, -78.18],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_fb7d5f31d874a2fc3a86ccd2659ccbd3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c3c26539ca56acf7e1cd0c99eeb27aa1 = $(`<div id="html_c3c26539ca56acf7e1cd0c99eeb27aa1" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Ecuador</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 19.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,057,121<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 3.41%<br>       <b>Rt Value:</b> 0.00<br>       <b>Cases/Million:</b> 58,726     </div>     </div>`)[0];
+                popup_fb7d5f31d874a2fc3a86ccd2659ccbd3.setContent(html_c3c26539ca56acf7e1cd0c99eeb27aa1);
+            
+        
+
+        circle_marker_6e658524840dcf85db87e777f479c602.bindPopup(popup_fb7d5f31d874a2fc3a86ccd2659ccbd3)
+        ;
+
+        
+    
+    
+            circle_marker_6e658524840dcf85db87e777f479c602.bindTooltip(
+                `<div>
+                     Ecuador: 19.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_31c521831c5211efc1d6fa0b43712a45 = L.circleMarker(
+                [26.82, 30.8],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_2b55ad51e6b136f34f9843dc3d5a24a2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6ecd017ed46eaa54cf0f7ae3b60714ab = $(`<div id="html_6ecd017ed46eaa54cf0f7ae3b60714ab" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Egypt</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 18.2/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 515,759<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 4.81%<br>       <b>Rt Value:</b> 5.00<br>       <b>Cases/Million:</b> 4,647     </div>     </div>`)[0];
+                popup_2b55ad51e6b136f34f9843dc3d5a24a2.setContent(html_6ecd017ed46eaa54cf0f7ae3b60714ab);
+            
+        
+
+        circle_marker_31c521831c5211efc1d6fa0b43712a45.bindPopup(popup_2b55ad51e6b136f34f9843dc3d5a24a2)
+        ;
+
+        
+    
+    
+            circle_marker_31c521831c5211efc1d6fa0b43712a45.bindTooltip(
+                `<div>
+                     Egypt: 18.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_180cfcc5625277bf5039f72642378ed4 = L.circleMarker(
+                [9.15, 40.49],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_cc750f0a8dcc8f20d1c9df1342882a09 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a06b6cf1df04b9679b9610e1e543bf8e = $(`<div id="html_a06b6cf1df04b9679b9610e1e543bf8e" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Ethiopia</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 500,116<br>       <b>New Cases:</b> 14<br>       <b>Death Rate:</b> 1.51%<br>       <b>Rt Value:</b> 0.92<br>       <b>Cases/Million:</b> 4,053     </div>     </div>`)[0];
+                popup_cc750f0a8dcc8f20d1c9df1342882a09.setContent(html_a06b6cf1df04b9679b9610e1e543bf8e);
+            
+        
+
+        circle_marker_180cfcc5625277bf5039f72642378ed4.bindPopup(popup_cc750f0a8dcc8f20d1c9df1342882a09)
+        ;
+
+        
+    
+    
+            circle_marker_180cfcc5625277bf5039f72642378ed4.bindTooltip(
+                `<div>
+                     Ethiopia: 21.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a1764219a4be4eaaf4f2f2584ab8cf7c = L.circleMarker(
+                [61.92, 25.75],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_3ab20260a0473a277b83ad1fa88c2a7d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5b867109a30d624025ba1a0cef5f8e42 = $(`<div id="html_5b867109a30d624025ba1a0cef5f8e42" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Finland</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 22.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,463,644<br>       <b>New Cases:</b> 668<br>       <b>Death Rate:</b> 0.61%<br>       <b>Rt Value:</b> 0.83<br>       <b>Cases/Million:</b> 264,160     </div>     </div>`)[0];
+                popup_3ab20260a0473a277b83ad1fa88c2a7d.setContent(html_5b867109a30d624025ba1a0cef5f8e42);
+            
+        
+
+        circle_marker_a1764219a4be4eaaf4f2f2584ab8cf7c.bindPopup(popup_3ab20260a0473a277b83ad1fa88c2a7d)
+        ;
+
+        
+    
+    
+            circle_marker_a1764219a4be4eaaf4f2f2584ab8cf7c.bindTooltip(
+                `<div>
+                     Finland: 22.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8e3ead16bd8bec99ba548ca1cc266186 = L.circleMarker(
+                [46.23, 2.21],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.542180844138544, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_45c81829c41ddb76bd5a7a558a5a28d7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4cfd59f7e22b637b0665186d8b413f44 = $(`<div id="html_4cfd59f7e22b637b0665186d8b413f44" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>France</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 27.7/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 39,866,718<br>       <b>New Cases:</b> 6,308<br>       <b>Death Rate:</b> 0.42%<br>       <b>Rt Value:</b> 1.19<br>       <b>Cases/Million:</b> 587,892     </div>     </div>`)[0];
+                popup_45c81829c41ddb76bd5a7a558a5a28d7.setContent(html_4cfd59f7e22b637b0665186d8b413f44);
+            
+        
+
+        circle_marker_8e3ead16bd8bec99ba548ca1cc266186.bindPopup(popup_45c81829c41ddb76bd5a7a558a5a28d7)
+        ;
+
+        
+    
+    
+            circle_marker_8e3ead16bd8bec99ba548ca1cc266186.bindTooltip(
+                `<div>
+                     France: 27.7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4496c013bc230538e206b92a5a772e55 = L.circleMarker(
+                [51.17, 10.45],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_7246fd7656778bd787ba006d6147c35d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5ab479e48604d2f43b92979598e656bb = $(`<div id="html_5ab479e48604d2f43b92979598e656bb" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Germany</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.3/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 38,249,060<br>       <b>New Cases:</b> 7,829<br>       <b>Death Rate:</b> 0.44%<br>       <b>Rt Value:</b> 0.41<br>       <b>Cases/Million:</b> 458,788     </div>     </div>`)[0];
+                popup_7246fd7656778bd787ba006d6147c35d.setContent(html_5ab479e48604d2f43b92979598e656bb);
+            
+        
+
+        circle_marker_4496c013bc230538e206b92a5a772e55.bindPopup(popup_7246fd7656778bd787ba006d6147c35d)
+        ;
+
+        
+    
+    
+            circle_marker_4496c013bc230538e206b92a5a772e55.bindTooltip(
+                `<div>
+                     Germany: 21.3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3c474227f3f64670425cb9e8aaad6569 = L.circleMarker(
+                [7.95, -1.02],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_06b4f71cf84a78de631d8ae7f209ae29 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0fcd50c01bba4e8d1bd4726d12c5c213 = $(`<div id="html_0fcd50c01bba4e8d1bd4726d12c5c213" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Ghana</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 20.0/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 171,229<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.85%<br>       <b>Rt Value:</b> 5.00<br>       <b>Cases/Million:</b> 5,115     </div>     </div>`)[0];
+                popup_06b4f71cf84a78de631d8ae7f209ae29.setContent(html_0fcd50c01bba4e8d1bd4726d12c5c213);
+            
+        
+
+        circle_marker_3c474227f3f64670425cb9e8aaad6569.bindPopup(popup_06b4f71cf84a78de631d8ae7f209ae29)
+        ;
+
+        
+    
+    
+            circle_marker_3c474227f3f64670425cb9e8aaad6569.bindTooltip(
+                `<div>
+                     Ghana: 20.0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d013eca0ea6ebc45619b3196de08a069 = L.circleMarker(
+                [39.07, 21.82],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.764942788197154, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_183b8002609f68b80a05b744630eaa26 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3490661172561151aa87fd8c3c32cea1 = $(`<div id="html_3490661172561151aa87fd8c3c32cea1" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Greece</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 28.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 5,548,487<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.63%<br>       <b>Rt Value:</b> 0.00<br>       <b>Cases/Million:</b> 534,280     </div>     </div>`)[0];
+                popup_183b8002609f68b80a05b744630eaa26.setContent(html_3490661172561151aa87fd8c3c32cea1);
+            
+        
+
+        circle_marker_d013eca0ea6ebc45619b3196de08a069.bindPopup(popup_183b8002609f68b80a05b744630eaa26)
+        ;
+
+        
+    
+    
+            circle_marker_d013eca0ea6ebc45619b3196de08a069.bindTooltip(
+                `<div>
+                     Greece: 28.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bc8b789f8afd94c499b32ffb642646e9 = L.circleMarker(
+                [47.16, 19.5],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_9f08e103ff65634cafcc08bdc1cf9359 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_daf903867e71f00b0aa3d385bbe14a6f = $(`<div id="html_daf903867e71f00b0aa3d385bbe14a6f" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Hungary</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 16.1/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 2,196,804<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 2.22%<br>       <b>Rt Value:</b> 0.92<br>       <b>Cases/Million:</b> 220,401     </div>     </div>`)[0];
+                popup_9f08e103ff65634cafcc08bdc1cf9359.setContent(html_daf903867e71f00b0aa3d385bbe14a6f);
+            
+        
+
+        circle_marker_bc8b789f8afd94c499b32ffb642646e9.bindPopup(popup_9f08e103ff65634cafcc08bdc1cf9359)
+        ;
+
+        
+    
+    
+            circle_marker_bc8b789f8afd94c499b32ffb642646e9.bindTooltip(
+                `<div>
+                     Hungary: 16.1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8e21e72354a7ee12bedc85bf632c329d = L.circleMarker(
+                [20.59, 78.96],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_cc00df0fce80a218c4e07e7952ed0e47 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4b432b049f88bca3b44c9bd11feecfcc = $(`<div id="html_4b432b049f88bca3b44c9bd11feecfcc" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>India</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 22.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 44,690,738<br>       <b>New Cases:</b> 440<br>       <b>Death Rate:</b> 1.19%<br>       <b>Rt Value:</b> 1.52<br>       <b>Cases/Million:</b> 31,535     </div>     </div>`)[0];
+                popup_cc00df0fce80a218c4e07e7952ed0e47.setContent(html_4b432b049f88bca3b44c9bd11feecfcc);
+            
+        
+
+        circle_marker_8e21e72354a7ee12bedc85bf632c329d.bindPopup(popup_cc00df0fce80a218c4e07e7952ed0e47)
+        ;
+
+        
+    
+    
+            circle_marker_8e21e72354a7ee12bedc85bf632c329d.bindTooltip(
+                `<div>
+                     India: 22.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_47704843402f017bb81ad05556deefd8 = L.circleMarker(
+                [-0.79, 113.92],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_733f8c41346428295d669f0afccce597 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_46b1dc21824edcb9e1ed7d94227f2981 = $(`<div id="html_46b1dc21824edcb9e1ed7d94227f2981" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Indonesia</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 19.7/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 6,738,225<br>       <b>New Cases:</b> 307<br>       <b>Death Rate:</b> 2.39%<br>       <b>Rt Value:</b> 1.07<br>       <b>Cases/Million:</b> 24,458     </div>     </div>`)[0];
+                popup_733f8c41346428295d669f0afccce597.setContent(html_46b1dc21824edcb9e1ed7d94227f2981);
+            
+        
+
+        circle_marker_47704843402f017bb81ad05556deefd8.bindPopup(popup_733f8c41346428295d669f0afccce597)
+        ;
+
+        
+    
+    
+            circle_marker_47704843402f017bb81ad05556deefd8.bindTooltip(
+                `<div>
+                     Indonesia: 19.7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_50d0e67838c10eaae3d962c354d789dd = L.circleMarker(
+                [32.43, 53.69],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_f23854388abe6dc3015b613d5c06bddf = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6955c4ed28f242bfd365587c8fe2c4ef = $(`<div id="html_6955c4ed28f242bfd365587c8fe2c4ef" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Iran</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 20.4/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 7,572,311<br>       <b>New Cases:</b> 315<br>       <b>Death Rate:</b> 1.91%<br>       <b>Rt Value:</b> 1.71<br>       <b>Cases/Million:</b> 85,514     </div>     </div>`)[0];
+                popup_f23854388abe6dc3015b613d5c06bddf.setContent(html_6955c4ed28f242bfd365587c8fe2c4ef);
+            
+        
+
+        circle_marker_50d0e67838c10eaae3d962c354d789dd.bindPopup(popup_f23854388abe6dc3015b613d5c06bddf)
+        ;
+
+        
+    
+    
+            circle_marker_50d0e67838c10eaae3d962c354d789dd.bindTooltip(
+                `<div>
+                     Iran: 20.4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4e1d087ea4833453774a864e92c9f9fc = L.circleMarker(
+                [33.22, 43.68],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_601002785dab18aa5f3ef817dfeee1c8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9fc8db14243afe71e69b26d977632fd4 = $(`<div id="html_9fc8db14243afe71e69b26d977632fd4" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Iraq</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 19.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 2,465,545<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 1.03%<br>       <b>Rt Value:</b> 0.00<br>       <b>Cases/Million:</b> 55,410     </div>     </div>`)[0];
+                popup_601002785dab18aa5f3ef817dfeee1c8.setContent(html_9fc8db14243afe71e69b26d977632fd4);
+            
+        
+
+        circle_marker_4e1d087ea4833453774a864e92c9f9fc.bindPopup(popup_601002785dab18aa5f3ef817dfeee1c8)
+        ;
+
+        
+    
+    
+            circle_marker_4e1d087ea4833453774a864e92c9f9fc.bindTooltip(
+                `<div>
+                     Iraq: 19.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c0005c2048971dd11f7af423e14a5793 = L.circleMarker(
+                [53.41, -8.24],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.040447914039808, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_c164d606af75ae80117b30e3244c05a7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a2026968848b1b41f0bb9dfec6349219 = $(`<div id="html_a2026968848b1b41f0bb9dfec6349219" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Ireland</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 25.2/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,704,502<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.51%<br>       <b>Rt Value:</b> 1.08<br>       <b>Cases/Million:</b> 339,332     </div>     </div>`)[0];
+                popup_c164d606af75ae80117b30e3244c05a7.setContent(html_a2026968848b1b41f0bb9dfec6349219);
+            
+        
+
+        circle_marker_c0005c2048971dd11f7af423e14a5793.bindPopup(popup_c164d606af75ae80117b30e3244c05a7)
+        ;
+
+        
+    
+    
+            circle_marker_c0005c2048971dd11f7af423e14a5793.bindTooltip(
+                `<div>
+                     Ireland: 25.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7c90730787a1b653bce7869ec234007c = L.circleMarker(
+                [31.05, 34.85],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.036778044738064, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_33cfb1ae14e203ea3e862763cb133f38 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_91f31b09a971bc6a52315d8153b4920a = $(`<div id="html_91f31b09a971bc6a52315d8153b4920a" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Israel</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 30.2/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 4,803,824<br>       <b>New Cases:</b> 660<br>       <b>Death Rate:</b> 0.26%<br>       <b>Rt Value:</b> 0.92<br>       <b>Cases/Million:</b> 508,395     </div>     </div>`)[0];
+                popup_33cfb1ae14e203ea3e862763cb133f38.setContent(html_91f31b09a971bc6a52315d8153b4920a);
+            
+        
+
+        circle_marker_7c90730787a1b653bce7869ec234007c.bindPopup(popup_33cfb1ae14e203ea3e862763cb133f38)
+        ;
+
+        
+    
+    
+            circle_marker_7c90730787a1b653bce7869ec234007c.bindTooltip(
+                `<div>
+                     Israel: 30.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_81b7539cc69398ee3a6c891759820735 = L.circleMarker(
+                [41.87, 12.57],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.527824976085678, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_2adc42b2af7e05f359cfe371d8e0da57 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f4c49effc7ff8412ad39a47ece981f73 = $(`<div id="html_f4c49effc7ff8412ad39a47ece981f73" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Italy</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 27.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 25,603,510<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.74%<br>       <b>Rt Value:</b> 0.91<br>       <b>Cases/Million:</b> 433,682     </div>     </div>`)[0];
+                popup_2adc42b2af7e05f359cfe371d8e0da57.setContent(html_f4c49effc7ff8412ad39a47ece981f73);
+            
+        
+
+        circle_marker_81b7539cc69398ee3a6c891759820735.bindPopup(popup_2adc42b2af7e05f359cfe371d8e0da57)
+        ;
+
+        
+    
+    
+            circle_marker_81b7539cc69398ee3a6c891759820735.bindTooltip(
+                `<div>
+                     Italy: 27.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e41f1951638909ada0b70315b790c629 = L.circleMarker(
+                [36.2, 138.25],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_d655c66065c7b82b3d275e67adfa2888 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_94238504396b374c7ab7a007903e0dcd = $(`<div id="html_94238504396b374c7ab7a007903e0dcd" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Japan</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 8.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 33,320,438<br>       <b>New Cases:</b> 9,834<br>       <b>Death Rate:</b> 0.22%<br>       <b>Rt Value:</b> 0.85<br>       <b>Cases/Million:</b> 268,818     </div>     </div>`)[0];
+                popup_d655c66065c7b82b3d275e67adfa2888.setContent(html_94238504396b374c7ab7a007903e0dcd);
+            
+        
+
+        circle_marker_e41f1951638909ada0b70315b790c629.bindPopup(popup_d655c66065c7b82b3d275e67adfa2888)
+        ;
+
+        
+    
+    
+            circle_marker_e41f1951638909ada0b70315b790c629.bindTooltip(
+                `<div>
+                     Japan: 8.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fc6f617fcb513f302d62b525be51b2a3 = L.circleMarker(
+                [30.59, 36.24],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_e4dbdad9c2e5a86fbf46b754c55b42aa = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4aca9bd55e30a07179eecd5cf7cdbc68 = $(`<div id="html_4aca9bd55e30a07179eecd5cf7cdbc68" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Jordan</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 22.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,746,997<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.81%<br>       <b>Rt Value:</b> 0.00<br>       <b>Cases/Million:</b> 154,795     </div>     </div>`)[0];
+                popup_e4dbdad9c2e5a86fbf46b754c55b42aa.setContent(html_4aca9bd55e30a07179eecd5cf7cdbc68);
+            
+        
+
+        circle_marker_fc6f617fcb513f302d62b525be51b2a3.bindPopup(popup_e4dbdad9c2e5a86fbf46b754c55b42aa)
+        ;
+
+        
+    
+    
+            circle_marker_fc6f617fcb513f302d62b525be51b2a3.bindTooltip(
+                `<div>
+                     Jordan: 22.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_610601caf17db1ac5fb4cee1ecd59cd8 = L.circleMarker(
+                [48.02, 66.92],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_237ec8d77eb92d9b6972df504f1d92f1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_45dde2543f0a0f31efe0174062e94fb6 = $(`<div id="html_45dde2543f0a0f31efe0174062e94fb6" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Kazakhstan</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 12.5/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,498,668<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 1.27%<br>       <b>Rt Value:</b> 0.00<br>       <b>Cases/Million:</b> 77,259     </div>     </div>`)[0];
+                popup_237ec8d77eb92d9b6972df504f1d92f1.setContent(html_45dde2543f0a0f31efe0174062e94fb6);
+            
+        
+
+        circle_marker_610601caf17db1ac5fb4cee1ecd59cd8.bindPopup(popup_237ec8d77eb92d9b6972df504f1d92f1)
+        ;
+
+        
+    
+    
+            circle_marker_610601caf17db1ac5fb4cee1ecd59cd8.bindTooltip(
+                `<div>
+                     Kazakhstan: 12.5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b29eb63f36aa87bdbd8aef06587ba9aa = L.circleMarker(
+                [-0.02, 37.91],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_155a198a26cd10cfdae1f9492b1104ee = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6d1f26ad750b1ac63bd8fea773d95bc6 = $(`<div id="html_6d1f26ad750b1ac63bd8fea773d95bc6" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Kenya</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 19.2/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 342,937<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 1.66%<br>       <b>Rt Value:</b> 0.95<br>       <b>Cases/Million:</b> 6,347     </div>     </div>`)[0];
+                popup_155a198a26cd10cfdae1f9492b1104ee.setContent(html_6d1f26ad750b1ac63bd8fea773d95bc6);
+            
+        
+
+        circle_marker_b29eb63f36aa87bdbd8aef06587ba9aa.bindPopup(popup_155a198a26cd10cfdae1f9492b1104ee)
+        ;
+
+        
+    
+    
+            circle_marker_b29eb63f36aa87bdbd8aef06587ba9aa.bindTooltip(
+                `<div>
+                     Kenya: 19.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8cb5e6a6373deffd0f21ef3b24cf335c = L.circleMarker(
+                [29.31, 47.48],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_f727d602907cc9992be94c159284075b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_03760930333c79d8e2eb28b69aedb4da = $(`<div id="html_03760930333c79d8e2eb28b69aedb4da" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Kuwait</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 663,860<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.39%<br>       <b>Rt Value:</b> 5.00<br>       <b>Cases/Million:</b> 155,511     </div>     </div>`)[0];
+                popup_f727d602907cc9992be94c159284075b.setContent(html_03760930333c79d8e2eb28b69aedb4da);
+            
+        
+
+        circle_marker_8cb5e6a6373deffd0f21ef3b24cf335c.bindPopup(popup_f727d602907cc9992be94c159284075b)
+        ;
+
+        
+    
+    
+            circle_marker_8cb5e6a6373deffd0f21ef3b24cf335c.bindTooltip(
+                `<div>
+                     Kuwait: 21.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1f4e422dccd797ac4a53cd3081514f08 = L.circleMarker(
+                [33.85, 35.86],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_1252d1f604b42a5e6bf6f78936696820 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1afe791c07ac300f7011fa49ef245279 = $(`<div id="html_1afe791c07ac300f7011fa49ef245279" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Lebanon</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 23.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,232,828<br>       <b>New Cases:</b> 179<br>       <b>Death Rate:</b> 0.88%<br>       <b>Rt Value:</b> 1.01<br>       <b>Cases/Million:</b> 224,569     </div>     </div>`)[0];
+                popup_1252d1f604b42a5e6bf6f78936696820.setContent(html_1afe791c07ac300f7011fa49ef245279);
+            
+        
+
+        circle_marker_1f4e422dccd797ac4a53cd3081514f08.bindPopup(popup_1252d1f604b42a5e6bf6f78936696820)
+        ;
+
+        
+    
+    
+            circle_marker_1f4e422dccd797ac4a53cd3081514f08.bindTooltip(
+                `<div>
+                     Lebanon: 23.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_91d62385a182f92182de4d5383619818 = L.circleMarker(
+                [26.34, 17.23],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_3280c7f7fa30bc57e62227a016f25927 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1f87f0b17d3147e1cb85b0d205fd8060 = $(`<div id="html_1f87f0b17d3147e1cb85b0d205fd8060" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Libya</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 16.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 507,187<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 1.27%<br>       <b>Rt Value:</b> 4.33<br>       <b>Cases/Million:</b> 74,451     </div>     </div>`)[0];
+                popup_3280c7f7fa30bc57e62227a016f25927.setContent(html_1f87f0b17d3147e1cb85b0d205fd8060);
+            
+        
+
+        circle_marker_91d62385a182f92182de4d5383619818.bindPopup(popup_3280c7f7fa30bc57e62227a016f25927)
+        ;
+
+        
+    
+    
+            circle_marker_91d62385a182f92182de4d5383619818.bindTooltip(
+                `<div>
+                     Libya: 16.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_603c2c6819ecab27df542a556ffb20c5 = L.circleMarker(
+                [4.21, 101.98],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_06ffb171460d91b9f6983a9a58dc207b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a4efefd74276044749f61ec0fe9f6af6 = $(`<div id="html_a4efefd74276044749f61ec0fe9f6af6" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Malaysia</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 5,044,718<br>       <b>New Cases:</b> 279<br>       <b>Death Rate:</b> 0.73%<br>       <b>Rt Value:</b> 1.02<br>       <b>Cases/Million:</b> 148,644     </div>     </div>`)[0];
+                popup_06ffb171460d91b9f6983a9a58dc207b.setContent(html_a4efefd74276044749f61ec0fe9f6af6);
+            
+        
+
+        circle_marker_603c2c6819ecab27df542a556ffb20c5.bindPopup(popup_06ffb171460d91b9f6983a9a58dc207b)
+        ;
+
+        
+    
+    
+            circle_marker_603c2c6819ecab27df542a556ffb20c5.bindTooltip(
+                `<div>
+                     Malaysia: 21.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5c431a6bf053d16d1ffd1e403b9cdde7 = L.circleMarker(
+                [23.63, -102.55],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_52cd25a4999309eef07d1d84e57ba20d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b74fc297826819325d6b89e9b973de8a = $(`<div id="html_b74fc297826819325d6b89e9b973de8a" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Mexico</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 19.9/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 7,483,444<br>       <b>New Cases:</b> 3,809<br>       <b>Death Rate:</b> 4.45%<br>       <b>Rt Value:</b> 1.41<br>       <b>Cases/Million:</b> 58,692     </div>     </div>`)[0];
+                popup_52cd25a4999309eef07d1d84e57ba20d.setContent(html_b74fc297826819325d6b89e9b973de8a);
+            
+        
+
+        circle_marker_5c431a6bf053d16d1ffd1e403b9cdde7.bindPopup(popup_52cd25a4999309eef07d1d84e57ba20d)
+        ;
+
+        
+    
+    
+            circle_marker_5c431a6bf053d16d1ffd1e403b9cdde7.bindTooltip(
+                `<div>
+                     Mexico: 19.9
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a663da95a67cef9a79e8a3419c525b25 = L.circleMarker(
+                [31.79, -7.09],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_5f5b4d1884236c46ea22259a47843a88 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8cdffc7ab5e991c7b45285b5fe37c93c = $(`<div id="html_8cdffc7ab5e991c7b45285b5fe37c93c" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Morocco</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 19.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,272,490<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 1.28%<br>       <b>Rt Value:</b> 0.36<br>       <b>Cases/Million:</b> 33,971     </div>     </div>`)[0];
+                popup_5f5b4d1884236c46ea22259a47843a88.setContent(html_8cdffc7ab5e991c7b45285b5fe37c93c);
+            
+        
+
+        circle_marker_a663da95a67cef9a79e8a3419c525b25.bindPopup(popup_5f5b4d1884236c46ea22259a47843a88)
+        ;
+
+        
+    
+    
+            circle_marker_a663da95a67cef9a79e8a3419c525b25.bindTooltip(
+                `<div>
+                     Morocco: 19.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_943140f591c657b9cf65806f809c655d = L.circleMarker(
+                [28.39, 84.12],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_9931feb3283995a733e6d8fddf5b9195 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b9bbf69d2b862d6f99eb3a55cfe10721 = $(`<div id="html_b9bbf69d2b862d6f99eb3a55cfe10721" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Nepal</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 23.4/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,001,154<br>       <b>New Cases:</b> 4<br>       <b>Death Rate:</b> 1.20%<br>       <b>Rt Value:</b> 0.45<br>       <b>Cases/Million:</b> 32,774     </div>     </div>`)[0];
+                popup_9931feb3283995a733e6d8fddf5b9195.setContent(html_b9bbf69d2b862d6f99eb3a55cfe10721);
+            
+        
+
+        circle_marker_943140f591c657b9cf65806f809c655d.bindPopup(popup_9931feb3283995a733e6d8fddf5b9195)
+        ;
+
+        
+    
+    
+            circle_marker_943140f591c657b9cf65806f809c655d.bindTooltip(
+                `<div>
+                     Nepal: 23.4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a9cddbe1b0e463a464c6e3cc5ab1e90e = L.circleMarker(
+                [52.13, 5.29],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.861391686188124, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_7565da8c57cb35332bf6ceb57a942b76 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_32bd8459f2d85cefc45224ce1a1e6335 = $(`<div id="html_32bd8459f2d85cefc45224ce1a1e6335" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Netherlands</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 29.3/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 8,712,835<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.27%<br>       <b>Rt Value:</b> 0.83<br>       <b>Cases/Million:</b> 496,062     </div>     </div>`)[0];
+                popup_7565da8c57cb35332bf6ceb57a942b76.setContent(html_32bd8459f2d85cefc45224ce1a1e6335);
+            
+        
+
+        circle_marker_a9cddbe1b0e463a464c6e3cc5ab1e90e.bindPopup(popup_7565da8c57cb35332bf6ceb57a942b76)
+        ;
+
+        
+    
+    
+            circle_marker_a9cddbe1b0e463a464c6e3cc5ab1e90e.bindTooltip(
+                `<div>
+                     Netherlands: 29.3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6b634af8d27e010785c32984b835febf = L.circleMarker(
+                [-40.9, 174.89],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.645344148092261, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_1b7bb7e3faf72173bba7391f7ff9b14d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8dc7a35c7e8670b8346a8fa87bff83da = $(`<div id="html_8dc7a35c7e8670b8346a8fa87bff83da" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>New Zealand</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 28.2/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 2,236,114<br>       <b>New Cases:</b> 1<br>       <b>Death Rate:</b> 0.11%<br>       <b>Rt Value:</b> 1.26<br>       <b>Cases/Million:</b> 431,242     </div>     </div>`)[0];
+                popup_1b7bb7e3faf72173bba7391f7ff9b14d.setContent(html_8dc7a35c7e8670b8346a8fa87bff83da);
+            
+        
+
+        circle_marker_6b634af8d27e010785c32984b835febf.bindPopup(popup_1b7bb7e3faf72173bba7391f7ff9b14d)
+        ;
+
+        
+    
+    
+            circle_marker_6b634af8d27e010785c32984b835febf.bindTooltip(
+                `<div>
+                     New Zealand: 28.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a8aeee562a4532300135890687ea9c19 = L.circleMarker(
+                [9.08, 8.68],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_775028599da515fff63084e0d0025f61 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f962a41958d42d52dddb571847526fd2 = $(`<div id="html_f962a41958d42d52dddb571847526fd2" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Nigeria</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 0.0/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 266,598<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 1.18%<br>       <b>Rt Value:</b> 0.00<br>       <b>Cases/Million:</b> 1,220     </div>     </div>`)[0];
+                popup_775028599da515fff63084e0d0025f61.setContent(html_f962a41958d42d52dddb571847526fd2);
+            
+        
+
+        circle_marker_a8aeee562a4532300135890687ea9c19.bindPopup(popup_775028599da515fff63084e0d0025f61)
+        ;
+
+        
+    
+    
+            circle_marker_a8aeee562a4532300135890687ea9c19.bindTooltip(
+                `<div>
+                     Nigeria: 0.0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9f86944aef83bc0705ca2bb553166cd8 = L.circleMarker(
+                [60.47, 8.47],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_f81950e789ca1a1a979568391f15bbdb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a818265e3b016865a7309782afdb61ea = $(`<div id="html_a818265e3b016865a7309782afdb61ea" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Norway</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 22.4/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,479,506<br>       <b>New Cases:</b> 53<br>       <b>Death Rate:</b> 0.35%<br>       <b>Rt Value:</b> 1.08<br>       <b>Cases/Million:</b> 272,252     </div>     </div>`)[0];
+                popup_f81950e789ca1a1a979568391f15bbdb.setContent(html_a818265e3b016865a7309782afdb61ea);
+            
+        
+
+        circle_marker_9f86944aef83bc0705ca2bb553166cd8.bindPopup(popup_f81950e789ca1a1a979568391f15bbdb)
+        ;
+
+        
+    
+    
+            circle_marker_9f86944aef83bc0705ca2bb553166cd8.bindTooltip(
+                `<div>
+                     Norway: 22.4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c36d7345e15a093282687b32dea05954 = L.circleMarker(
+                [30.38, 69.35],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_464119693fe142931605d79708869158 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9cee886c9f94c9a27a71cfd4e8862b1e = $(`<div id="html_9cee886c9f94c9a27a71cfd4e8862b1e" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Pakistan</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.1/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,577,411<br>       <b>New Cases:</b> 73<br>       <b>Death Rate:</b> 1.94%<br>       <b>Rt Value:</b> 1.22<br>       <b>Cases/Million:</b> 6,689     </div>     </div>`)[0];
+                popup_464119693fe142931605d79708869158.setContent(html_9cee886c9f94c9a27a71cfd4e8862b1e);
+            
+        
+
+        circle_marker_c36d7345e15a093282687b32dea05954.bindPopup(popup_464119693fe142931605d79708869158)
+        ;
+
+        
+    
+    
+            circle_marker_c36d7345e15a093282687b32dea05954.bindTooltip(
+                `<div>
+                     Pakistan: 21.1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0168c8dac420d4f27e564e67c78fdd51 = L.circleMarker(
+                [-9.19, -75.02],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_2b3c1cc2362e23334fa3001231107730 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_332486e203501fc54db608f75e9907be = $(`<div id="html_332486e203501fc54db608f75e9907be" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Peru</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.5/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 4,487,553<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 4.89%<br>       <b>Rt Value:</b> 1.84<br>       <b>Cases/Million:</b> 131,795     </div>     </div>`)[0];
+                popup_2b3c1cc2362e23334fa3001231107730.setContent(html_332486e203501fc54db608f75e9907be);
+            
+        
+
+        circle_marker_0168c8dac420d4f27e564e67c78fdd51.bindPopup(popup_2b3c1cc2362e23334fa3001231107730)
+        ;
+
+        
+    
+    
+            circle_marker_0168c8dac420d4f27e564e67c78fdd51.bindTooltip(
+                `<div>
+                     Peru: 21.5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_40e66c4df2d258037d2f4b840cfdb3da = L.circleMarker(
+                [12.88, 121.77],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_0f1167382b2ac3df55185b6fe4f75399 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ed1e4edbbb1ffdc2cbcb40b12274eeec = $(`<div id="html_ed1e4edbbb1ffdc2cbcb40b12274eeec" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Philippines</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.2/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 4,077,452<br>       <b>New Cases:</b> 150<br>       <b>Death Rate:</b> 1.62%<br>       <b>Rt Value:</b> 1.16<br>       <b>Cases/Million:</b> 35,285     </div>     </div>`)[0];
+                popup_0f1167382b2ac3df55185b6fe4f75399.setContent(html_ed1e4edbbb1ffdc2cbcb40b12274eeec);
+            
+        
+
+        circle_marker_40e66c4df2d258037d2f4b840cfdb3da.bindPopup(popup_0f1167382b2ac3df55185b6fe4f75399)
+        ;
+
+        
+    
+    
+            circle_marker_40e66c4df2d258037d2f4b840cfdb3da.bindTooltip(
+                `<div>
+                     Philippines: 21.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_50adc0fe8470959e65ba3a132108819e = L.circleMarker(
+                [51.92, 19.15],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_98a51b194449468d9ead539bfbf9b249 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_018e73c77aab2902567830fed17ab62c = $(`<div id="html_018e73c77aab2902567830fed17ab62c" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Poland</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 15.1/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 6,444,960<br>       <b>New Cases:</b> 3,459<br>       <b>Death Rate:</b> 1.85%<br>       <b>Rt Value:</b> 1.22<br>       <b>Cases/Million:</b> 161,702     </div>     </div>`)[0];
+                popup_98a51b194449468d9ead539bfbf9b249.setContent(html_018e73c77aab2902567830fed17ab62c);
+            
+        
+
+        circle_marker_50adc0fe8470959e65ba3a132108819e.bindPopup(popup_98a51b194449468d9ead539bfbf9b249)
+        ;
+
+        
+    
+    
+            circle_marker_50adc0fe8470959e65ba3a132108819e.bindTooltip(
+                `<div>
+                     Poland: 15.1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f15b2abf5b9132fb9c73a713f9008151 = L.circleMarker(
+                [39.4, -8.22],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.052998178007369, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_e69b4d14c69d48dac95ecbe38f485a9e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f97d1d9b775f8fe9034dedc37bff656d = $(`<div id="html_f97d1d9b775f8fe9034dedc37bff656d" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Portugal</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 30.3/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 5,570,473<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.47%<br>       <b>Rt Value:</b> 1.74<br>       <b>Cases/Million:</b> 542,357     </div>     </div>`)[0];
+                popup_e69b4d14c69d48dac95ecbe38f485a9e.setContent(html_f97d1d9b775f8fe9034dedc37bff656d);
+            
+        
+
+        circle_marker_f15b2abf5b9132fb9c73a713f9008151.bindPopup(popup_e69b4d14c69d48dac95ecbe38f485a9e)
+        ;
+
+        
+    
+    
+            circle_marker_f15b2abf5b9132fb9c73a713f9008151.bindTooltip(
+                `<div>
+                     Portugal: 30.3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3dfc7451b618d52dfeb658ca9f256963 = L.circleMarker(
+                [25.35, 51.18],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_0dc82c2b1889275a90e4e3d30bf4988b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c25f6b9ae5b67a20f8d9003c0f6223a9 = $(`<div id="html_c25f6b9ae5b67a20f8d9003c0f6223a9" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Qatar</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 23.5/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 495,090<br>       <b>New Cases:</b> 108<br>       <b>Death Rate:</b> 0.14%<br>       <b>Rt Value:</b> 1.09<br>       <b>Cases/Million:</b> 183,698     </div>     </div>`)[0];
+                popup_0dc82c2b1889275a90e4e3d30bf4988b.setContent(html_c25f6b9ae5b67a20f8d9003c0f6223a9);
+            
+        
+
+        circle_marker_3dfc7451b618d52dfeb658ca9f256963.bindPopup(popup_0dc82c2b1889275a90e4e3d30bf4988b)
+        ;
+
+        
+    
+    
+            circle_marker_3dfc7451b618d52dfeb658ca9f256963.bindTooltip(
+                `<div>
+                     Qatar: 23.5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9eb0677734cd2fedf12f3bfa37b91aa4 = L.circleMarker(
+                [45.94, 24.97],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_158b1b1da116a5f791b5235bd14ecc07 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bf508b0e73db4859c77f964787938464 = $(`<div id="html_bf508b0e73db4859c77f964787938464" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Romania</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 14.9/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 3,346,046<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 2.02%<br>       <b>Rt Value:</b> 1.09<br>       <b>Cases/Million:</b> 170,202     </div>     </div>`)[0];
+                popup_158b1b1da116a5f791b5235bd14ecc07.setContent(html_bf508b0e73db4859c77f964787938464);
+            
+        
+
+        circle_marker_9eb0677734cd2fedf12f3bfa37b91aa4.bindPopup(popup_158b1b1da116a5f791b5235bd14ecc07)
+        ;
+
+        
+    
+    
+            circle_marker_9eb0677734cd2fedf12f3bfa37b91aa4.bindTooltip(
+                `<div>
+                     Romania: 14.9
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a782333d7cbb7bc46a40d6d2b2aed8cf = L.circleMarker(
+                [61.52, 105.32],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_ce7f013824add22da9e3854c817b14e3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b937a47f0375427ecd4dede6d555ee0a = $(`<div id="html_b937a47f0375427ecd4dede6d555ee0a" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Russia</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 12.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 22,075,858<br>       <b>New Cases:</b> 12,385<br>       <b>Death Rate:</b> 1.76%<br>       <b>Rt Value:</b> 1.09<br>       <b>Cases/Million:</b> 152,549     </div>     </div>`)[0];
+                popup_ce7f013824add22da9e3854c817b14e3.setContent(html_b937a47f0375427ecd4dede6d555ee0a);
+            
+        
+
+        circle_marker_a782333d7cbb7bc46a40d6d2b2aed8cf.bindPopup(popup_ce7f013824add22da9e3854c817b14e3)
+        ;
+
+        
+    
+    
+            circle_marker_a782333d7cbb7bc46a40d6d2b2aed8cf.bindTooltip(
+                `<div>
+                     Russia: 12.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1520735e1bfd4c3e799bae17a5ac6d3f = L.circleMarker(
+                [23.89, 45.08],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_2582e113cf5214dc7fa95e7bfb8c970b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6696db7f2d69a16a381c8889f6882128 = $(`<div id="html_6696db7f2d69a16a381c8889f6882128" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Saudi Arabia</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 16.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 830,127<br>       <b>New Cases:</b> 83<br>       <b>Death Rate:</b> 1.16%<br>       <b>Rt Value:</b> 1.03<br>       <b>Cases/Million:</b> 22,800     </div>     </div>`)[0];
+                popup_2582e113cf5214dc7fa95e7bfb8c970b.setContent(html_6696db7f2d69a16a381c8889f6882128);
+            
+        
+
+        circle_marker_1520735e1bfd4c3e799bae17a5ac6d3f.bindPopup(popup_2582e113cf5214dc7fa95e7bfb8c970b)
+        ;
+
+        
+    
+    
+            circle_marker_1520735e1bfd4c3e799bae17a5ac6d3f.bindTooltip(
+                `<div>
+                     Saudi Arabia: 16.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5fa91cdcc94b65365acbca3859eec6bd = L.circleMarker(
+                [44.02, 21.01],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_5e689061108d0f01057bd9f6243044a2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_86b9e6ccf255addc4fbfde554d3a6d4e = $(`<div id="html_86b9e6ccf255addc4fbfde554d3a6d4e" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Serbia</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 22.2/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 2,500,142<br>       <b>New Cases:</b> 873<br>       <b>Death Rate:</b> 0.72%<br>       <b>Rt Value:</b> 1.05<br>       <b>Cases/Million:</b> 363,840     </div>     </div>`)[0];
+                popup_5e689061108d0f01057bd9f6243044a2.setContent(html_86b9e6ccf255addc4fbfde554d3a6d4e);
+            
+        
+
+        circle_marker_5fa91cdcc94b65365acbca3859eec6bd.bindPopup(popup_5e689061108d0f01057bd9f6243044a2)
+        ;
+
+        
+    
+    
+            circle_marker_5fa91cdcc94b65365acbca3859eec6bd.bindTooltip(
+                `<div>
+                     Serbia: 22.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9d14353328ec471d3c44e8610552cc3f = L.circleMarker(
+                [1.35, 103.82],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.126665386647831, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_9678ddf08b595587e379e76845e9a84e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f016facbb9eabefce01a6d9266adfc60 = $(`<div id="html_f016facbb9eabefce01a6d9266adfc60" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Singapore</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 30.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 2,235,294<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.08%<br>       <b>Rt Value:</b> 0.50<br>       <b>Cases/Million:</b> 396,538     </div>     </div>`)[0];
+                popup_9678ddf08b595587e379e76845e9a84e.setContent(html_f016facbb9eabefce01a6d9266adfc60);
+            
+        
+
+        circle_marker_9d14353328ec471d3c44e8610552cc3f.bindPopup(popup_9678ddf08b595587e379e76845e9a84e)
+        ;
+
+        
+    
+    
+            circle_marker_9d14353328ec471d3c44e8610552cc3f.bindTooltip(
+                `<div>
+                     Singapore: 30.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_15a32273aded2a5e464adda65594317b = L.circleMarker(
+                [48.67, 19.7],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_f2041d105e5666257d5513640637c5d6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7cb71a63b651e5a28a12cca865b64be3 = $(`<div id="html_7cb71a63b651e5a28a12cca865b64be3" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Slovakia</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 24.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 2,667,551<br>       <b>New Cases:</b> 262<br>       <b>Death Rate:</b> 0.79%<br>       <b>Rt Value:</b> 1.31<br>       <b>Cases/Million:</b> 472,680     </div>     </div>`)[0];
+                popup_f2041d105e5666257d5513640637c5d6.setContent(html_7cb71a63b651e5a28a12cca865b64be3);
+            
+        
+
+        circle_marker_15a32273aded2a5e464adda65594317b.bindPopup(popup_f2041d105e5666257d5513640637c5d6)
+        ;
+
+        
+    
+    
+            circle_marker_15a32273aded2a5e464adda65594317b.bindTooltip(
+                `<div>
+                     Slovakia: 24.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_95aa712607bf3c2747011f9b82230971 = L.circleMarker(
+                [-30.56, 22.94],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_f3d965597e5cb9804b2826e4beaca073 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_07b23e70db731a72691d94cee833905d = $(`<div id="html_07b23e70db731a72691d94cee833905d" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>South Africa</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 18.8/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 4,067,067<br>       <b>New Cases:</b> 426<br>       <b>Death Rate:</b> 2.52%<br>       <b>Rt Value:</b> 0.77<br>       <b>Cases/Million:</b> 67,905     </div>     </div>`)[0];
+                popup_f3d965597e5cb9804b2826e4beaca073.setContent(html_07b23e70db731a72691d94cee833905d);
+            
+        
+
+        circle_marker_95aa712607bf3c2747011f9b82230971.bindPopup(popup_f3d965597e5cb9804b2826e4beaca073)
+        ;
+
+        
+    
+    
+            circle_marker_95aa712607bf3c2747011f9b82230971.bindTooltip(
+                `<div>
+                     South Africa: 18.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_46661e4b6f9219b36e456eeec67fa82f = L.circleMarker(
+                [40.46, -3.75],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_4b393b0df8ab0f62e85df2b1aff36d1d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d5cecea16b01b6fa8b5586d729143f29 = $(`<div id="html_d5cecea16b01b6fa8b5586d729143f29" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Spain</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 23.9/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 13,770,429<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.87%<br>       <b>Rt Value:</b> 0.96<br>       <b>Cases/Million:</b> 289,546     </div>     </div>`)[0];
+                popup_4b393b0df8ab0f62e85df2b1aff36d1d.setContent(html_d5cecea16b01b6fa8b5586d729143f29);
+            
+        
+
+        circle_marker_46661e4b6f9219b36e456eeec67fa82f.bindPopup(popup_4b393b0df8ab0f62e85df2b1aff36d1d)
+        ;
+
+        
+    
+    
+            circle_marker_46661e4b6f9219b36e456eeec67fa82f.bindTooltip(
+                `<div>
+                     Spain: 23.9
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f169903165f0ff6c01e5d1955cdb9c0d = L.circleMarker(
+                [7.87, 80.77],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_76ee74575336a8cb2a3600b0f0281f53 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0fb59afcf53194898da5e94cc0fac2ea = $(`<div id="html_0fb59afcf53194898da5e94cc0fac2ea" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Sri Lanka</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 16.7/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 672,039<br>       <b>New Cases:</b> 2<br>       <b>Death Rate:</b> 2.50%<br>       <b>Rt Value:</b> 1.33<br>       <b>Cases/Million:</b> 30,782     </div>     </div>`)[0];
+                popup_76ee74575336a8cb2a3600b0f0281f53.setContent(html_0fb59afcf53194898da5e94cc0fac2ea);
+            
+        
+
+        circle_marker_f169903165f0ff6c01e5d1955cdb9c0d.bindPopup(popup_76ee74575336a8cb2a3600b0f0281f53)
+        ;
+
+        
+    
+    
+            circle_marker_f169903165f0ff6c01e5d1955cdb9c0d.bindTooltip(
+                `<div>
+                     Sri Lanka: 16.7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_80ed3ca1f9e4bb63de608215a61bfacd = L.circleMarker(
+                [60.13, 18.64],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_1235380ed95ec3e10209e2bdb2f7e70e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_75e8f47c462bc6329d4d9748f2b3bf47 = $(`<div id="html_75e8f47c462bc6329d4d9748f2b3bf47" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Sweden</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 24.0/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 2,699,339<br>       <b>New Cases:</b> 804<br>       <b>Death Rate:</b> 0.88%<br>       <b>Rt Value:</b> 1.14<br>       <b>Cases/Million:</b> 255,877     </div>     </div>`)[0];
+                popup_1235380ed95ec3e10209e2bdb2f7e70e.setContent(html_75e8f47c462bc6329d4d9748f2b3bf47);
+            
+        
+
+        circle_marker_80ed3ca1f9e4bb63de608215a61bfacd.bindPopup(popup_1235380ed95ec3e10209e2bdb2f7e70e)
+        ;
+
+        
+    
+    
+            circle_marker_80ed3ca1f9e4bb63de608215a61bfacd.bindTooltip(
+                `<div>
+                     Sweden: 24.0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5893d7dea1b216c89026b12e920929cd = L.circleMarker(
+                [46.82, 8.23],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.512438830297329, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_f500cb061c6fcdf5b2cc6cf4f0ddde38 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_34a50ceede1a29eca061e1fde4ab10ee = $(`<div id="html_34a50ceede1a29eca061e1fde4ab10ee" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Switzerland</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 27.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 4,413,911<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.32%<br>       <b>Rt Value:</b> 1.07<br>       <b>Cases/Million:</b> 504,997     </div>     </div>`)[0];
+                popup_f500cb061c6fcdf5b2cc6cf4f0ddde38.setContent(html_34a50ceede1a29eca061e1fde4ab10ee);
+            
+        
+
+        circle_marker_5893d7dea1b216c89026b12e920929cd.bindPopup(popup_f500cb061c6fcdf5b2cc6cf4f0ddde38)
+        ;
+
+        
+    
+    
+            circle_marker_5893d7dea1b216c89026b12e920929cd.bindTooltip(
+                `<div>
+                     Switzerland: 27.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ec4525297b42d83f43465e9ff703e978 = L.circleMarker(
+                [15.87, 100.99],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_404c9998f77314d51bfe465af9f50de0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cf855e9f5100c3ec7760e802e47bddd4 = $(`<div id="html_cf855e9f5100c3ec7760e802e47bddd4" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Thailand</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 19.2/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 4,728,182<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.72%<br>       <b>Rt Value:</b> 0.72<br>       <b>Cases/Million:</b> 65,947     </div>     </div>`)[0];
+                popup_404c9998f77314d51bfe465af9f50de0.setContent(html_cf855e9f5100c3ec7760e802e47bddd4);
+            
+        
+
+        circle_marker_ec4525297b42d83f43465e9ff703e978.bindPopup(popup_404c9998f77314d51bfe465af9f50de0)
+        ;
+
+        
+    
+    
+            circle_marker_ec4525297b42d83f43465e9ff703e978.bindTooltip(
+                `<div>
+                     Thailand: 19.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_643534cc5c4ce3632cbfb68a81842bdf = L.circleMarker(
+                [33.89, 9.54],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_6f8881f12b716a58ca8a69d7e222baf8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7c499dbc7b84358962bdb944c3e37f3b = $(`<div id="html_7c499dbc7b84358962bdb944c3e37f3b" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Tunisia</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 19.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,151,126<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 2.55%<br>       <b>Rt Value:</b> 0.97<br>       <b>Cases/Million:</b> 93,162     </div>     </div>`)[0];
+                popup_6f8881f12b716a58ca8a69d7e222baf8.setContent(html_7c499dbc7b84358962bdb944c3e37f3b);
+            
+        
+
+        circle_marker_643534cc5c4ce3632cbfb68a81842bdf.bindPopup(popup_6f8881f12b716a58ca8a69d7e222baf8)
+        ;
+
+        
+    
+    
+            circle_marker_643534cc5c4ce3632cbfb68a81842bdf.bindTooltip(
+                `<div>
+                     Tunisia: 19.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_99746dee78d84eff96dda03fea3998d0 = L.circleMarker(
+                [38.96, 35.24],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_2f855c5fd6dbf4aa06871345b1573213 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2cb7b2641bbc8a35416c0c1a8ed0157e = $(`<div id="html_2cb7b2641bbc8a35416c0c1a8ed0157e" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Turkey</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.7/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 17,042,722<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.60%<br>       <b>Rt Value:</b> 0.00<br>       <b>Cases/Million:</b> 199,701     </div>     </div>`)[0];
+                popup_2f855c5fd6dbf4aa06871345b1573213.setContent(html_2cb7b2641bbc8a35416c0c1a8ed0157e);
+            
+        
+
+        circle_marker_99746dee78d84eff96dda03fea3998d0.bindPopup(popup_2f855c5fd6dbf4aa06871345b1573213)
+        ;
+
+        
+    
+    
+            circle_marker_99746dee78d84eff96dda03fea3998d0.bindTooltip(
+                `<div>
+                     Turkey: 21.7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_97a362e45443854d8722120eee40696c = L.circleMarker(
+                [37.09, -95.71],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_0f1c6188a4a7701fb4ec7738d262aac3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_de436835b489f43de9425832d3abbcd6 = $(`<div id="html_de436835b489f43de9425832d3abbcd6" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>US</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 0.0/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 103,802,702<br>       <b>New Cases:</b> 46,931<br>       <b>Death Rate:</b> 1.08%<br>       <b>Rt Value:</b> 0.97<br>       <b>Cases/Million:</b> 0     </div>     </div>`)[0];
+                popup_0f1c6188a4a7701fb4ec7738d262aac3.setContent(html_de436835b489f43de9425832d3abbcd6);
+            
+        
+
+        circle_marker_97a362e45443854d8722120eee40696c.bindPopup(popup_0f1c6188a4a7701fb4ec7738d262aac3)
+        ;
+
+        
+    
+    
+            circle_marker_97a362e45443854d8722120eee40696c.bindTooltip(
+                `<div>
+                     US: 0.0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e5eecac7689dab7ac7c03ff80a8e4995 = L.circleMarker(
+                [48.38, 31.17],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_2bed955b67525fbc2d71a4151a9b39ce = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_74ec6d2b355b16cb1babcf25d76b5ee7 = $(`<div id="html_74ec6d2b355b16cb1babcf25d76b5ee7" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Ukraine</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 11.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 5,711,929<br>       <b>New Cases:</b> 111<br>       <b>Death Rate:</b> 2.09%<br>       <b>Rt Value:</b> 1.33<br>       <b>Cases/Million:</b> 143,871     </div>     </div>`)[0];
+                popup_2bed955b67525fbc2d71a4151a9b39ce.setContent(html_74ec6d2b355b16cb1babcf25d76b5ee7);
+            
+        
+
+        circle_marker_e5eecac7689dab7ac7c03ff80a8e4995.bindPopup(popup_2bed955b67525fbc2d71a4151a9b39ce)
+        ;
+
+        
+    
+    
+            circle_marker_e5eecac7689dab7ac7c03ff80a8e4995.bindTooltip(
+                `<div>
+                     Ukraine: 11.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e29a7993132079db9e6db82704fc370a = L.circleMarker(
+                [23.42, 53.85],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_8c7b0bc1a798586b5c5b091e3d53d61c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ff597239b7f0f28b9ab02f614ac27d6e = $(`<div id="html_ff597239b7f0f28b9ab02f614ac27d6e" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>United Arab Emirates</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.5/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,053,213<br>       <b>New Cases:</b> 145<br>       <b>Death Rate:</b> 0.22%<br>       <b>Rt Value:</b> 1.22<br>       <b>Cases/Million:</b> 111,556     </div>     </div>`)[0];
+                popup_8c7b0bc1a798586b5c5b091e3d53d61c.setContent(html_ff597239b7f0f28b9ab02f614ac27d6e);
+            
+        
+
+        circle_marker_e29a7993132079db9e6db82704fc370a.bindPopup(popup_8c7b0bc1a798586b5c5b091e3d53d61c)
+        ;
+
+        
+    
+    
+            circle_marker_e29a7993132079db9e6db82704fc370a.bindTooltip(
+                `<div>
+                     United Arab Emirates: 21.5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8578aec5ead3221472f36ba15e1b18c3 = L.circleMarker(
+                [55.38, -3.44],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.418904855750713, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_5b89ac5431a423f8082fd30fbd37b79b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6e87eedc0a2d5f71d9c4e9031c27c1ff = $(`<div id="html_6e87eedc0a2d5f71d9c4e9031c27c1ff" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>United Kingdom</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 27.1/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 24,658,705<br>       <b>New Cases:</b> 28,783<br>       <b>Death Rate:</b> 0.90%<br>       <b>Rt Value:</b> 1.09<br>       <b>Cases/Million:</b> 365,266     </div>     </div>`)[0];
+                popup_5b89ac5431a423f8082fd30fbd37b79b.setContent(html_6e87eedc0a2d5f71d9c4e9031c27c1ff);
+            
+        
+
+        circle_marker_8578aec5ead3221472f36ba15e1b18c3.bindPopup(popup_5b89ac5431a423f8082fd30fbd37b79b)
+        ;
+
+        
+    
+    
+            circle_marker_8578aec5ead3221472f36ba15e1b18c3.bindTooltip(
+                `<div>
+                     United Kingdom: 27.1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b0d6d25a271513571f001215911f0d79 = L.circleMarker(
+                [-32.52, -55.77],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_5b3137fdff9804f9885f5313fd09cf34 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d22e94518bb8b3cfaf34947c9058ab91 = $(`<div id="html_d22e94518bb8b3cfaf34947c9058ab91" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Uruguay</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 24.4/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 1,034,303<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.74%<br>       <b>Rt Value:</b> 0.00<br>       <b>Cases/Million:</b> 302,181     </div>     </div>`)[0];
+                popup_5b3137fdff9804f9885f5313fd09cf34.setContent(html_d22e94518bb8b3cfaf34947c9058ab91);
+            
+        
+
+        circle_marker_b0d6d25a271513571f001215911f0d79.bindPopup(popup_5b3137fdff9804f9885f5313fd09cf34)
+        ;
+
+        
+    
+    
+            circle_marker_b0d6d25a271513571f001215911f0d79.bindTooltip(
+                `<div>
+                     Uruguay: 24.4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3484e99291b6d631912cbee6a4abb67c = L.circleMarker(
+                [6.42, -66.59],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_f5719982de66f85b947223b3a13f7756 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a4dbf3831a17b272544b7b2a45a9d2e6 = $(`<div id="html_a4dbf3831a17b272544b7b2a45a9d2e6" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Venezuela</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 19.6/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 552,162<br>       <b>New Cases:</b> 5<br>       <b>Death Rate:</b> 1.06%<br>       <b>Rt Value:</b> 5.00<br>       <b>Cases/Million:</b> 19,510     </div>     </div>`)[0];
+                popup_f5719982de66f85b947223b3a13f7756.setContent(html_a4dbf3831a17b272544b7b2a45a9d2e6);
+            
+        
+
+        circle_marker_3484e99291b6d631912cbee6a4abb67c.bindPopup(popup_f5719982de66f85b947223b3a13f7756)
+        ;
+
+        
+    
+    
+            circle_marker_3484e99291b6d631912cbee6a4abb67c.bindTooltip(
+                `<div>
+                     Venezuela: 19.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9cc0f3a9eee383e8f47a1a9b5fee9776 = L.circleMarker(
+                [14.06, 108.28],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_74deef7630dccd6a1764b89ec3bf57aa = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_33b60b40b9613c4b55c7dadde0b25805 = $(`<div id="html_33b60b40b9613c4b55c7dadde0b25805" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Vietnam</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 21.2/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 11,526,994<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 0.37%<br>       <b>Rt Value:</b> 0.85<br>       <b>Cases/Million:</b> 117,399     </div>     </div>`)[0];
+                popup_74deef7630dccd6a1764b89ec3bf57aa.setContent(html_33b60b40b9613c4b55c7dadde0b25805);
+            
+        
+
+        circle_marker_9cc0f3a9eee383e8f47a1a9b5fee9776.bindPopup(popup_74deef7630dccd6a1764b89ec3bf57aa)
+        ;
+
+        
+    
+    
+            circle_marker_9cc0f3a9eee383e8f47a1a9b5fee9776.bindTooltip(
+                `<div>
+                     Vietnam: 21.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1a1588f92697b1f2d819ba4606fcca0b = L.circleMarker(
+                [-19.02, 29.15],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bcf9f537d67b3aa8549d7c6bb48b4efe);
+        
+    
+        var popup_6aad155aedc3e4920f8babaf143496fc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a31815d1ca4680a5c5a616a3de6aa66c = $(`<div id="html_a31815d1ca4680a5c5a616a3de6aa66c" style="width: 100.0%; height: 100.0%;">     <div style='font-family:Arial;width:200px'>       <h4 style='margin:0;color:#333'>Zimbabwe</h4>       <hr style='margin:4px 0'>       <b>Risk Score:</b> 18.9/100<br>       <b>Risk Level:</b>         <span style='color:green;font-weight:bold'>           Low         </span><br>       <b>Total Cases:</b> 264,276<br>       <b>New Cases:</b> 0<br>       <b>Death Rate:</b> 2.15%<br>       <b>Rt Value:</b> 0.72<br>       <b>Cases/Million:</b> 16,193     </div>     </div>`)[0];
+                popup_6aad155aedc3e4920f8babaf143496fc.setContent(html_a31815d1ca4680a5c5a616a3de6aa66c);
+            
+        
+
+        circle_marker_1a1588f92697b1f2d819ba4606fcca0b.bindPopup(popup_6aad155aedc3e4920f8babaf143496fc)
+        ;
+
+        
+    
+    
+            circle_marker_1a1588f92697b1f2d819ba4606fcca0b.bindTooltip(
+                `<div>
+                     Zimbabwe: 18.9
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

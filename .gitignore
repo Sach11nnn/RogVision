@@ -1,7 +1,32 @@
-﻿venv/
+﻿# Python
+venv/
 __pycache__/
 *.pyc
-.ipynb_checkpoints/
+*.log
+
+# Large data files — local rakhenge, push nahi
 data/raw/*.csv
 data/processed/*.csv
-.env
+data/processed/*.pkl
+
+# Generated JSON — export_data.py se ban jaate hain
+dashboard-ui/public/countries/
+dashboard-ui/public/countries.json
+dashboard-ui/public/forecast.json
+dashboard-ui/public/global_stats.json
+dashboard-ui/public/global_trend.json
+dashboard-ui/public/india_data.json
+dashboard-ui/public/rt_india.json
+dashboard-ui/public/top10_risk.json
+
+# Placeholder images — V0 ke default hain
+dashboard-ui/public/placeholder*
+dashboard-ui/public/apple-icon.png
+
+# Node
+node_modules/
+.expo/
+.next/
+
+# Expo
+mobile-app2/.expo/
